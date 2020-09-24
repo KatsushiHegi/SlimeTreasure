@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public bool flag_range; //true：プレイヤーへ移動
     bool flag_moving;　//false:停止 true:移動
     bool flag_swich; //停止・移動の切り替えフラグ
+    Animator animator;
     void Start()
     {
         flag_range = false;
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
         time_rand = 1;
         flag_moving = false;
         flag_swich = false;
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -31,8 +33,15 @@ public class Enemy : MonoBehaviour
                 {
                     flag_moving = true;
                     transform.rotation = Quaternion.Euler(0, Random.value * 360f, 0);//ランダムな方向に向きを変える
+                    Debug.Log("true");
+                    animator.SetBool("isRun", true);
                 }
-                else flag_moving = false;
+                else
+                {
+                    Debug.Log("false");
+                    flag_moving = false;
+                    animator.SetBool("isRun", false);
+                }
 
                 time_sum = 0;
                 flag_swich = false;

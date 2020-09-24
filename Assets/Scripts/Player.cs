@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField] Joystick _joystick = null;
     private const float SPEED = 0.15f; //移動速度
     Animator animator;
-    Animation animation;
 
     private static readonly int hashAttack = Animator.StringToHash("Attack");
 
@@ -16,7 +15,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        animation = GetComponent<Animation>();
     }
     private void Update()
     {

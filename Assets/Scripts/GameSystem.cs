@@ -17,7 +17,7 @@ public class GameSystem : MonoBehaviour
         {
             x = Random.value * 100 - 50;
             z = Random.value * 100 - 50;
-            Instantiate(Enemy, new Vector3(x, 1, z), Quaternion.identity).transform.parent=Enemy_parent.transform;
+            Instantiate(Enemy, new Vector3(x, 0, z), Quaternion.identity).transform.parent=Enemy_parent.transform;
         }
     }
 }
