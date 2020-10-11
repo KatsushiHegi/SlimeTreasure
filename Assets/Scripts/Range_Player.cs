@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Range_Player : MonoBehaviour
 {
+    public GameSystem gameSystem;
     GameObject Player;
     Animator animator;
     AnimatorStateInfo animInfo;
+
     void Start()
     {
         Player = transform.parent.gameObject;
         animator = Player.GetComponent<Animator>();
         animInfo = animator.GetCurrentAnimatorStateInfo(0);
     }
-    private void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy"
@@ -37,6 +34,7 @@ public class Range_Player : MonoBehaviour
                 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
             {
                 Destroy(collision.gameObject);
+                gameSystem.incKillCount(1);
                 animator.ResetTrigger("Attack");
             }
         }

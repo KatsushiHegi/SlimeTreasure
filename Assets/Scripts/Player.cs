@@ -9,9 +9,6 @@ public class Player : MonoBehaviour
     private const float SPEED = 0.15f; //移動速度
     Animator animator;
 
-    private static readonly int hashAttack = Animator.StringToHash("Attack");
-
-
     private void Start()
     {
         animator = GetComponent<Animator>();
