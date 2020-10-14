@@ -33,6 +33,7 @@ public class Range_Player : MonoBehaviour
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
                 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
             {
+                Debug.Log("a");
                 Destroy(collision.gameObject);
                 gameSystem.incKillCount(1);
                 animator.ResetTrigger("Attack");
