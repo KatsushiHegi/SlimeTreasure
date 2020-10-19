@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class GameSystem : MonoBehaviour
 {
     [SerializeField] GameObject Enemy;
     [SerializeField] GameObject Enemy_parent;
-    public GameObject TextCountObj;
+    public GameObject TextCountObj,ItemBoxPanel;
     private int killCount;
     public int getKillCount() { return this.killCount; }
     public void setKillCount(int killCount)
@@ -43,11 +44,9 @@ public class GameSystem : MonoBehaviour
         Text TextCounter = TextCountObj.GetComponent<Text>();
         TextCounter.text = "討伐数：" + killCount;
     }
-    /*
-    public void dispKillCount()
+
+    public void OnClickItemBoxBotton()
     {
-        Text TextCounter = TextCountObj.GetComponent<Text>();
-        TextCounter.text = "討伐数：" + killCount;
+        ItemBoxPanel.SetActive(true);
     }
-    */
 }
