@@ -22,6 +22,7 @@ public class Range_Player : MonoBehaviour
             && !animator.IsInTransition(0))
         {
             animator.SetTrigger("Attack");
+            //ここ
         }
     }
     void OnTriggerStay(Collider collision)
@@ -30,6 +31,7 @@ public class Range_Player : MonoBehaviour
         {
             Player.transform.LookAt(collision.gameObject.transform);
             animator.SetTrigger("Attack");
+            //だめだったらここも
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
                 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
             {
