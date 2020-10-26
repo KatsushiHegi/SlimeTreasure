@@ -17,6 +17,7 @@ public class ChangeSword : MonoBehaviour
     public void OnClickSwordBotton()
     {
         itemSystem.activeSword().getSword().SetActive(false);
+        itemSystem.activeSword().setIsActive(false);
         item.setIsActive(true);
         item.getSword().SetActive(true);
         ItemBoxPanel.SetActive(false);
