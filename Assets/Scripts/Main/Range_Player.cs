@@ -6,6 +6,7 @@ public class Range_Player : MonoBehaviour
 {
     public GameSystem gameSystem;
     public ItemSystem itemSystem;
+    public EffectSystem effectSystem;
     GameObject Player;
     Animator animator;
     AnimatorStateInfo animInfo;
@@ -24,6 +25,7 @@ public class Range_Player : MonoBehaviour
         {
             animator.SetTrigger("Attack");
             //ここ
+            
         }
     }
     void OnTriggerStay(Collider collision)
@@ -33,9 +35,11 @@ public class Range_Player : MonoBehaviour
             Player.transform.LookAt(collision.gameObject.transform);
             animator.SetTrigger("Attack");
             //だめだったらここも
+            
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
                 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
             {
+                effectSystem.effectActive();
                 Destroy(collision.gameObject);
                 gameSystem.incKillCount(1);
                 Debug.Log("0");
