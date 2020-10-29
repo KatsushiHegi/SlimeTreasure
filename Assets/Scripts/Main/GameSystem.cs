@@ -38,7 +38,7 @@ public class GameSystem : MonoBehaviour
     private void Update()
     {
         Text TextCounter = TextCountObj.GetComponent<Text>();
-        TextCounter.text = "討伐数：" + killCount;
+        TextCounter.text = killCount.ToString();
     }
 
     public void OnClickItemBoxBotton()

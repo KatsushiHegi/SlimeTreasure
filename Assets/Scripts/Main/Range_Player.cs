@@ -39,7 +39,8 @@ public class Range_Player : MonoBehaviour
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
                 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
             {
-                effectSystem.effectActive();
+                //effectSystem.effectActive();
+                effectSystem.effectInstantiate(Player.transform.position, Player.transform.rotation);
                 Destroy(collision.gameObject);
                 gameSystem.incKillCount(1);
                 Debug.Log("0");

@@ -9652,7 +9652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3834654503413304477}
   m_Layer: 0
-  m_Name: sowrd05
+  m_Name: sword05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9700,13 +9700,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3834654504319348506}
-  m_LocalRotation: {x: -0.18851498, y: -0.4104061, z: 0.41237658, w: 0.79118556}
+  m_LocalRotation: {x: -0.18851447, y: -0.4104082, z: 0.41237453, w: 0.7911856}
   m_LocalPosition: {x: 6.01, y: -0.19, z: 2.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3834654503413304477}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -182.303, y: 126.337, z: -126.106995}
+  m_LocalEulerAnglesHint: {x: -182.303, y: 126.337, z: -126.107}
 --- !u!198 &3834654504319348511
 ParticleSystem:
   m_ObjectHideFlags: 0
