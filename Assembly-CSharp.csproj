@@ -70,8 +70,10 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\Scripts\GameConfig.cs" />
     <Compile Include="Assets\Scripts\Main\Camera_Player.cs" />
     <Compile Include="Assets\Scripts\Main\ChangeSword.cs" />
+    <Compile Include="Assets\Scripts\Main\CreateSword.cs" />
     <Compile Include="Assets\Scripts\Main\Destroy.cs" />
     <Compile Include="Assets\Scripts\Main\EffectSystem.cs" />
     <Compile Include="Assets\Scripts\Main\Enemy.cs" />
@@ -81,7 +83,6 @@
     <Compile Include="Assets\Scripts\Main\Player.cs" />
     <Compile Include="Assets\Scripts\Main\Range_Enemy.cs" />
     <Compile Include="Assets\Scripts\Main\Range_Player.cs" />
-    <Compile Include="Assets\Scripts\Main\createSword.cs" />
     <Compile Include="Assets\Scripts\Title\TitleController.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/program files/2019.4.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

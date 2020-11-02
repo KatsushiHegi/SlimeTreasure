@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class createSword : MonoBehaviour
+public class CreateSword : MonoBehaviour
 {
     public ItemSystem itemSystem;
     private int swordNum;
@@ -15,8 +15,11 @@ public class createSword : MonoBehaviour
     public void create()
     {
         item.setIsSword(true);
+        itemSystem.gameSystem.GameConfig.activeSword[swordNum] = true;
         item.setKCount(0);
+        itemSystem.gameSystem.GameConfig.kakeraCounts[swordNum] = 0;
         item.delK();
+        itemSystem.setSwordCount(itemSystem.getSwordCount() + 1);
         item.getButton().transform.Find("c").gameObject.SetActive(true);
         item.dispSwordButton();
     }

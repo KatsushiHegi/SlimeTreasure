@@ -6,7 +6,9 @@ using UnityEngine;
 public class EffectSystem : MonoBehaviour
 {
     public GameObject[] effect;
+    public float[] effectTime;
     public ItemSystem itemSystem;
+    private bool flag;
 
     /*
     public void effectActive(){
@@ -18,15 +20,20 @@ public class EffectSystem : MonoBehaviour
     */
     public void effectInstantiate(Vector3 pos,Quaternion rot)
     {
-        rot.eulerAngles += new Vector3(0, 0, 45);
-        int swordNum = int.Parse(itemSystem.activeSword().getSword().name);
-        StartCoroutine(desEffect(Instantiate(effect[swordNum], pos, rot)));
+        if (!flag)
+        {
+            rot.eulerAngles += new Vector3(0, 0, 45);
+            int swordNum = int.Parse(itemSystem.activeSword().getSword().name);
+            StartCoroutine(desEffect(Instantiate(effect[swordNum], pos, rot),effectTime[swordNum]));
+            flag = true;
+        }
     }
 
-    IEnumerator desEffect(GameObject effect)
+    IEnumerator desEffect(GameObject effect,float time)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(time);
         Destroy(effect);
+        flag = false;
     }
 
 }

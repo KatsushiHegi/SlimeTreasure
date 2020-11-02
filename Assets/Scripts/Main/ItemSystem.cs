@@ -1,23 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEditor.XR;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemSystem : MonoBehaviour
 {
     public GameObject[] swords;
     public GameObject[] buttons;
     public GameObject ItemBoxPanel;
+    public GameSystem gameSystem;
     Item[] items = new Item[6];
+    private int swordCount;
 
-    private void Start()
-    {
-        for (int i = 0; i < items.Length; i++)
-        {
-            items[i] = new Item(swords[i], buttons[i], 0.5);
-        }
-        items[0].setIsSword(true);
+    public int getSwordCount() { return swordCount; }
+    public void setSwordCount(int swordCount) {
+        this.swordCount = swordCount;
+        gameSystem.GameConfig.swordCount = swordCount;
+        gameSystem.disp(gameSystem.swordCounter, this.swordCount.ToString());
     }
-
     public Item getItem(int num) { return items[num]; }
 
     public void swordChange()
@@ -38,15 +40,20 @@ public class ItemSystem : MonoBehaviour
     }
 
 
-    public void dropChallenge()
+    public int dropChallenge()
     {
-        foreach (Item item in items)
+        for (int i = 0; i < items.Length; i++)
         {
-            if (!item.getIsSword())
+            if (!items[i].getIsSword())
             {
-                if (item.drop()) break;
+                if (items[i].drop())
+                {
+                    gameSystem.GameConfig.kakeraCounts[i] = items[i].getKCount();
+                    return i;
+                }
             }
         }
+        return 9;
     }
 
     public void itemBoxControl()
@@ -65,6 +72,21 @@ public class ItemSystem : MonoBehaviour
             if(item.getIsActive())return item;
         }
         return items[0];
+    }
+
+    public void loadItem(int swordCount,bool[] activeSwords,int[] kakeraCounts)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i] = new Item(swords[i], buttons[i], 0.5);
+        }
+        setSwordCount(swordCount);
+        for (int i = 0; i < activeSwords.Length; i++)
+        {
+            items[i].setIsActive(activeSwords[i]);
+            items[i].setIsSword(activeSwords[i]);
+            items[i].setKCount(kakeraCounts[i]);
+        }
     }
     
 }

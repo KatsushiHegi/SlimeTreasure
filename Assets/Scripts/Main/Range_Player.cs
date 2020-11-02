@@ -43,7 +43,6 @@ public class Range_Player : MonoBehaviour
                 effectSystem.effectInstantiate(Player.transform.position, Player.transform.rotation);
                 Destroy(collision.gameObject);
                 gameSystem.incKillCount(1);
-                Debug.Log("0");
                 itemSystem.dropChallenge();
                 animator.ResetTrigger("Attack");
             }

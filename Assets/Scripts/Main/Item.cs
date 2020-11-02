@@ -28,39 +28,22 @@ public class Item
     }
 
     private void kCountup(int i = 1)
-    {        this.kCount = kCount + i > 3 ? 3 : kCount + i;
+    {
+        this.kCount = kCount + i > 3 ? 3 : kCount + i;
 
     }
 
     public GameObject getSword() { return sword; }
     public GameObject getButton() { return button; }
 
-    public int getKCount()
-    {
-        return kCount;
-    }
-    public void setKCount(int kCount)
-    {
-        this.kCount = kCount;
-    }
+    public int getKCount() { return kCount; }
+    public void setKCount(int kCount) { this.kCount = kCount; }
 
-    public bool getIsSword()
-    {
-        return isSword;
-    }
-    public void setIsSword(bool b)
-    {
-        this.isSword = b;
-    }
+    public bool getIsSword() { return isSword; }
+    public void setIsSword(bool b) { this.isSword = b; }
 
-    public bool getIsActive()
-    {
-        return isActive;
-    }
-    public void setIsActive(bool b)
-    {
-        this.isActive = b;
-    }
+    public bool getIsActive() { return isActive; }
+    public void setIsActive(bool b) { this.isActive = b; }
 
 
     public bool drop()
