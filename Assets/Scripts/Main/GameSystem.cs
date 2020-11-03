@@ -97,6 +97,7 @@ public class GameSystem : MonoBehaviour
             x = UnityEngine.Random.Range(-50, 50);
             z = UnityEngine.Random.Range(-50, 50);
             Instantiate(Enemy, new Vector3(x, 0, z), Quaternion.identity).transform.parent = Enemy_parent.transform;
+            //Instantiate(Enemy, new Vector3(x, 0, z), Quaternion.identity, Enemy_parent.transform)
         }
         killCount = 0;
     }
