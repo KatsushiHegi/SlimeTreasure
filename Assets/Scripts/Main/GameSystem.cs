@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Xml.Serialization;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class GameSystem : MonoBehaviour
 {
     [SerializeField] GameObject Enemy;
     [SerializeField] GameObject Enemy_parent;
-    public GameObject ItemBoxPanel,Fade;
+    public GameObject ItemBoxPanel,Fade,ToBossImage;
     public Text killCounter,swordCounter,nameText;
     public ItemSystem itemSystem;
     private float x, z;
@@ -76,6 +77,12 @@ public class GameSystem : MonoBehaviour
         itemSystem.loadItem(GameConfig.swordCount, GameConfig.activeSword, GameConfig.kakeraCounts);
     }
 
+    public IEnumerator ToBoss()
+    {
+        ToBossImage.SetActive(true);
+        yield return new WaitForSeconds(3);
+        ToBossImage.GetComponent<Animator>().Play("ToBossMsg");
+    }
 
     IEnumerator fadeIn()
     {

@@ -9,6 +9,8 @@ public class ItemSystem : MonoBehaviour
 {
     public GameObject[] swords;
     public GameObject[] buttons;
+    public GameObject[] kakeras;
+    public GameObject kParent;
     public GameObject ItemBoxPanel;
     public GameSystem gameSystem;
     Item[] items = new Item[6];
@@ -49,6 +51,7 @@ public class ItemSystem : MonoBehaviour
                 if (items[i].drop())
                 {
                     gameSystem.GameConfig.kakeraCounts[i] = items[i].getKCount();
+                    StartCoroutine(PlayDropAnim(i));
                     return i;
                 }
             }
@@ -87,6 +90,15 @@ public class ItemSystem : MonoBehaviour
             items[i].setIsSword(activeSwords[i]);
             items[i].setKCount(kakeraCounts[i]);
         }
+    }
+    IEnumerator PlayDropAnim(int num)
+    {
+        Debug.Log("aaa");
+
+        GameObject ins;
+        ins = Instantiate(kakeras[num], kParent.transform);
+        yield return new WaitForSeconds(1);
+        Destroy(ins);
     }
     
 }

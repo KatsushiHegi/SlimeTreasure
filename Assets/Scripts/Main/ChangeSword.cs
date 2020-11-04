@@ -21,5 +21,6 @@ public class ChangeSword : MonoBehaviour
         item.setIsActive(true);
         item.getSword().SetActive(true);
         ItemBoxPanel.SetActive(false);
+        if (itemSystem.getSwordCount() == 6) StartCoroutine(itemSystem.gameSystem.ToBoss());
     }
 }
