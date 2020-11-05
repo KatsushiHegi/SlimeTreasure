@@ -20,6 +20,5 @@ public class TitleController : MonoBehaviour
     IEnumerator goToMain()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Main");
     }
 }

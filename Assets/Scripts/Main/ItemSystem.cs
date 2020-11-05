@@ -81,7 +81,7 @@ public class ItemSystem : MonoBehaviour
     {
         for (int i = 0; i < items.Length; i++)
         {
-            items[i] = new Item(swords[i], buttons[i], 0.5);
+            items[i] = new Item(swords[i], buttons[i], 1);
         }
         setSwordCount(swordCount);
         for (int i = 0; i < activeSwords.Length; i++)
@@ -93,8 +93,6 @@ public class ItemSystem : MonoBehaviour
     }
     IEnumerator PlayDropAnim(int num)
     {
-        Debug.Log("aaa");
-
         GameObject ins;
         ins = Instantiate(kakeras[num], kParent.transform);
         yield return new WaitForSeconds(1);

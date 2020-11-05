@@ -20,7 +20,7 @@ public class ChangeSword : MonoBehaviour
         itemSystem.activeSword().setIsActive(false);
         item.setIsActive(true);
         item.getSword().SetActive(true);
+        if (itemSystem.getSwordCount() == 2) itemSystem.gameSystem.ToBoss();
         ItemBoxPanel.SetActive(false);
-        if (itemSystem.getSwordCount() == 6) StartCoroutine(itemSystem.gameSystem.ToBoss());
     }
 }
