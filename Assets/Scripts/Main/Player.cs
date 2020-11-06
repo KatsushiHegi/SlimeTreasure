@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public int attackFlag;
     [SerializeField] Joystick _joystick = null;
     private const float SPEED = 0.15f; //移動速度
+    [SerializeField] ParticleSystem smoke;
     Animator animator;
 
     private void Start()
@@ -28,10 +29,16 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(diff); //向きを変更する
             animator.SetTrigger("isRun");
+            if(!smoke.isEmitting){
+                smoke.Play();
+            }
         }
         else
         {
             animator.ResetTrigger("isRun");
+            if(smoke.isEmitting){
+                smoke.Stop();
+            }
         }
     
 
