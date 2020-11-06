@@ -22149,7 +22149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e144827cd4f43c4584033ebdee86af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSystem: {fileID: 1292364734}
 --- !u!4 &1216843463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4607489187838822, guid: 00e2e59cbc04eab4a982218df54ce70b,
@@ -25760,7 +25759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e144827cd4f43c4584033ebdee86af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSystem: {fileID: 1292364734}
 --- !u!1 &1378982686
 GameObject:
   m_ObjectHideFlags: 0
@@ -26019,7 +26017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e144827cd4f43c4584033ebdee86af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSystem: {fileID: 1292364734}
 --- !u!1001 &1385486640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28853,6 +28850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_path_01a
       objectReference: {fileID: 0}
+    - target: {fileID: 1329638177129074, guid: a25996a7d0674de40a8273b54b50aa7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4508691648621678, guid: a25996a7d0674de40a8273b54b50aa7b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.466394
@@ -29513,7 +29514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e144827cd4f43c4584033ebdee86af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSystem: {fileID: 1292364734}
 --- !u!4 &1599456821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4607489187838822, guid: 00e2e59cbc04eab4a982218df54ce70b,
@@ -36209,7 +36209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e144827cd4f43c4584033ebdee86af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSystem: {fileID: 1292364734}
 --- !u!4 &1964912750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4607489187838822, guid: 00e2e59cbc04eab4a982218df54ce70b,
@@ -37934,7 +37933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e144827cd4f43c4584033ebdee86af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSystem: {fileID: 1292364734}
 --- !u!1001 &2065906632
 PrefabInstance:
   m_ObjectHideFlags: 0
