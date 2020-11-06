@@ -121,7 +121,7 @@ public class GameSystem : MonoBehaviour
                 {
                     x = UnityEngine.Random.Range(-50, 50);
                     z = UnityEngine.Random.Range(-50, 50);
-                    slimes[i] = Instantiate(Enemy, new Vector3(x, 0, z), Quaternion.identity, Enemy_parent.transform);
+                    slimes[i] = Instantiate(Enemy, new Vector3(x, 0.07f, z), Quaternion.identity, Enemy_parent.transform);
                 }
             }
             yield return new WaitForSeconds(10);

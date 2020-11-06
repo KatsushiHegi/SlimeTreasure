@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public int attackFlag;
     [SerializeField] Joystick _joystick = null;
     private const float SPEED = 0.15f; //移動速度
-    [SerializeField] ParticleSystem smoke;
+    public  ParticleSystem smoke;
     Animator animator;
 
     private void Start()
