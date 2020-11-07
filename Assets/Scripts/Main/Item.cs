@@ -13,7 +13,7 @@ public class Item
     private GameObject swordButton;
     private GameObject[] k;
     private System.Random r = new System.Random();
-    public Item(GameObject sword, GameObject button, double dropProb = 0.01)
+    public Item(GameObject sword, GameObject button, float dropProb = 0.01f)
     {
         kCount = 0;
         this.sword = sword;

@@ -1,24 +1,27 @@
-﻿[System.Serializable]
+﻿using JetBrains.Annotations;
+
+[System.Serializable]
 public class GameConfig
 {
     public string playerName;
-    public int killCount;
-    public int swordCount;
-    public bool[] activeSword;
+    public int killCount, swordCount, activeSwordNum;
+    public bool[] sworded;
     public int[] kakeraCounts;
+
+    public bool isBossGame;
+    public int bossHp;
     public GameConfig()
     {
         playerName = "SlimeHunter";
-        killCount = 0;
         swordCount = 1;
-        activeSword = new bool[6];
+        sworded = new bool[6];
         kakeraCounts = new int[6];
-
-        for (int i = 0; i < activeSword.Length; i++)
+        bossHp = Boss.maxHp;
+        for (int i = 0; i < sworded.Length; i++)
         {
-            activeSword[i] = false;
+            sworded[i] = false;
             kakeraCounts[i] = 0;
         }
-        activeSword[0] = true;
+        sworded[0] = true;
     }
 }

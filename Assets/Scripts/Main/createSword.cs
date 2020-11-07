@@ -15,7 +15,7 @@ public class CreateSword : MonoBehaviour
     public void create()
     {
         item.setIsSword(true);
-        itemSystem.gameSystem.GameConfig.activeSword[swordNum] = true;
+        itemSystem.gameSystem.GameConfig.sworded[swordNum] = true;
         item.setKCount(0);
         itemSystem.gameSystem.GameConfig.kakeraCounts[swordNum] = 0;
         item.delK();
