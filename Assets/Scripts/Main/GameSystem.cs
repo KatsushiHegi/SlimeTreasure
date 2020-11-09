@@ -30,7 +30,6 @@ public class GameSystem : MonoBehaviour
     public void incKillCount(int inc)
     {
         this.killCount += inc;
-        GameConfig.killCount = killCount;
         disp(killCounter, killCount.ToString());
     }
 
@@ -60,7 +59,7 @@ public class GameSystem : MonoBehaviour
         disp(nameText, GameConfig.playerName);
         setKillCount(GameConfig.killCount);
         disp(killCounter, killCount.ToString());
-        itemSystem.loadItem(GameConfig.swordCount, GameConfig.sworded, GameConfig.kakeraCounts, GameConfig.activeSwordNum);
+        itemSystem.loadItem(GameConfig.swordCount, GameConfig.activeSword, GameConfig.kakeraCounts);
     }
 
     public void ToBoss()
@@ -75,7 +74,6 @@ public class GameSystem : MonoBehaviour
         Fade.transform.SetAsLastSibling();
         Fade.GetComponent<Animator>().Play("Fade Out");
         yield return new WaitForSeconds(1f);
-        SaveDataToLocal();
         SceneManager.LoadScene("Boss");
     }
 
@@ -89,6 +87,7 @@ public class GameSystem : MonoBehaviour
     }
     IEnumerator MainThered()
     {
+        float x, z;
         LoadDataFromLocal();
         Init();
         yield return fadeIn();
@@ -102,8 +101,6 @@ public class GameSystem : MonoBehaviour
     {
         string json = PlayerPrefs.GetString("gameconfig", null);
         GameConfig = String.IsNullOrEmpty(json) ? new GameConfig() : JsonUtility.FromJson<GameConfig>(json);
-        /*Debug*/
-        GameConfig = new GameConfig();
     }
 
     public void SaveDataToLocal()

@@ -19,7 +19,6 @@ public class ChangeSword : MonoBehaviour
         itemSystem.activeSword().getSword().SetActive(false);
         itemSystem.activeSword().setIsActive(false);
         item.setIsActive(true);
-        itemSystem.gameSystem.GameConfig.activeSwordNum = swordNum;
         item.getSword().SetActive(true);
         if (itemSystem.getSwordCount() == 2) itemSystem.gameSystem.ToBoss();
         ItemBoxPanel.SetActive(false);
