@@ -77,17 +77,21 @@ public class ItemSystem : MonoBehaviour
         return items[0];
     }
 
-    public void loadItem(int swordCount,bool[] activeSwords,int[] kakeraCounts)
+    public void loadItem(int swordCount,bool[] sworded,int[] kakeraCounts, int activeSwordNum)
     {
         for (int i = 0; i < items.Length; i++)
         {
-            items[i] = new Item(swords[i], buttons[i], 1);
+            items[i] = new Item(swords[i], buttons[i], 0.9f);
         }
         setSwordCount(swordCount);
-        for (int i = 0; i < activeSwords.Length; i++)
+        for (int i = 0; i < sworded.Length; i++)
         {
-            items[i].setIsActive(activeSwords[i]);
-            items[i].setIsSword(activeSwords[i]);
+            if (i == activeSwordNum)
+            {
+                items[i].setIsActive(true);
+                swords[i].SetActive(true);
+            }
+            items[i].setIsSword(sworded[i]);
             items[i].setKCount(kakeraCounts[i]);
         }
     }
