@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 public class TitleController : MonoBehaviour
 {
     public GameObject fade;
-    void Start()
-    {
-
-    }
-
     public void titlePanelClick()
     {
         fade.SetActive(true);
@@ -20,5 +15,6 @@ public class TitleController : MonoBehaviour
     IEnumerator goToMain()
     {
         yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Main");
     }
 }

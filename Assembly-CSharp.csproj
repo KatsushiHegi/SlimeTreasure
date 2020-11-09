@@ -64,10 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Boss\Boss.cs" />
+    <Compile Include="Assets\Scripts\Boss\BossController\BossGameBossController.cs" />
     <Compile Include="Assets\Scripts\Boss\BossGameController.cs" />
-    <Compile Include="Assets\Scripts\Boss\BossGameEffectController.cs" />
-    <Compile Include="Assets\Scripts\Boss\BossGamePlayerController.cs" />
     <Compile Include="Assets\Scripts\Boss\BossGameSystem.cs" />
+    <Compile Include="Assets\Scripts\Boss\PlayerController\BossGamePlayerController.cs" />
+    <Compile Include="Assets\Scripts\Boss\PlayerController\EffectController\BossGameEffectController.cs" />
+    <Compile Include="Assets\Scripts\Boss\ResultController\BossGameResultController.cs" />
     <Compile Include="Assets\Scripts\GameConfig.cs" />
     <Compile Include="Assets\Scripts\Main\Camera_Player.cs" />
     <Compile Include="Assets\Scripts\Main\ChangeSword.cs" />

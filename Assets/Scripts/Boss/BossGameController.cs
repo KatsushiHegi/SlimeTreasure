@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 public class BossGameController : MonoBehaviour
 {
-    public GameObject FadeImage;
+    public GameObject FadeImage, ResultObj;
     public Text NameText, KillCounter, SwordCounter;
     public Slider BossHpSlider;
 
     public BossGamePlayerController PlayerController;
+    public BossGameBossController BossController;
 
     BossGameSystem bossGameSystem;
     void Start()
@@ -35,9 +36,12 @@ public class BossGameController : MonoBehaviour
 
     public void AttackToBoss()
     {
-        bossGameSystem.Attack();
+        bool flag;
+        flag=bossGameSystem.Attack();
         ReDispHp();
         StartCoroutine(PlayerController.PlayAttack());
+        StartCoroutine(BossController.PlayBossTakenDam());
+        if (flag) StartCoroutine(ResultThered());
     }
 
     public void ReDispHp()
@@ -52,6 +56,13 @@ public class BossGameController : MonoBehaviour
         yield return FadeIn();
 
     }
+
+    IEnumerator ResultThered()
+    {
+        yield return BossController.PlayBossDead();
+        ResultObj.SetActive(true);
+    }
+
 
     IEnumerator FadeIn()
     {

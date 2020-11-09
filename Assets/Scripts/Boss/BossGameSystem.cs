@@ -8,6 +8,7 @@ public class BossGameSystem
     public GameConfig GameConfig { get; private set; }
 
     public Boss Boss { get; private set; }
+
     public BossGameSystem()
     {
         LoadDataFromLocal();
@@ -15,9 +16,14 @@ public class BossGameSystem
         Boss.hp = GameConfig.bossHp;
     }
 
-    public void Attack()
+    public bool Attack()
     {
         Boss.hp--;
+        if (Boss.hp <= 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     //save
