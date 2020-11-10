@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2873,6 +2873,7 @@ GameObject:
   - component: {fileID: 182773193}
   - component: {fileID: 182773192}
   - component: {fileID: 182773194}
+  - component: {fileID: 182773195}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2941,13 +2942,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeImage: {fileID: 1356574972}
-  ResultObj: {fileID: 1414192634}
+  TapPanel: {fileID: 1826946103}
   NameText: {fileID: 754590270}
   KillCounter: {fileID: 208666699}
   SwordCounter: {fileID: 1374882850}
   BossHpSlider: {fileID: 1768456822}
   PlayerController: {fileID: 182773193}
   BossController: {fileID: 182773194}
+  ResultController: {fileID: 182773195}
 --- !u!114 &182773192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3001,6 +3003,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boss: {fileID: 8790127512291423559}
+--- !u!114 &182773195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182773187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c3f1ee1f61914fafb5d3cdd6dc01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResultObj: {fileID: 1414192634}
+  TotalKillTextValue: {fileID: 435640691}
+  TotalTimeTextValue: {fileID: 1827532312}
 --- !u!1001 &184616531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21996,7 +22013,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1400703269}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 182773191}
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1400703269
 MonoBehaviour:
   m_ObjectHideFlags: 0

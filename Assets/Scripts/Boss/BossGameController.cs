@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossGameController : MonoBehaviour
 {
-    public GameObject FadeImage, ResultObj;
+    public GameObject FadeImage, TapPanel;
     public Text NameText, KillCounter, SwordCounter;
     public Slider BossHpSlider;
-
     public BossGamePlayerController PlayerController;
     public BossGameBossController BossController;
+    public BossGameResultController ResultController;
 
     BossGameSystem bossGameSystem;
     void Start()
@@ -41,12 +42,21 @@ public class BossGameController : MonoBehaviour
         ReDispHp();
         StartCoroutine(PlayerController.PlayAttack());
         StartCoroutine(BossController.PlayBossTakenDam());
-        if (flag) StartCoroutine(ResultThered());
+        if (flag)
+        {
+            StartCoroutine(ResultThered());
+            TapPanel.SetActive(false);
+        }
     }
 
     public void ReDispHp()
     {
         BossHpSlider.value = (float)bossGameSystem.Boss.hp / Boss.maxHp;
+    }
+
+    public void ButtonClick()
+    {
+        StartCoroutine(ToMainThered());
     }
 
 
@@ -60,7 +70,13 @@ public class BossGameController : MonoBehaviour
     IEnumerator ResultThered()
     {
         yield return BossController.PlayBossDead();
-        ResultObj.SetActive(true);
+        ResultController.SetResult(bossGameSystem);
+    }
+
+    IEnumerator ToMainThered()
+    {
+        yield return FadeOut();
+        SceneManager.LoadScene("Main");
     }
 
 
@@ -69,5 +85,11 @@ public class BossGameController : MonoBehaviour
         FadeImage.GetComponent<Animator>().Play("Fade In");
         yield return new WaitForSeconds(1);
         FadeImage.SetActive(false);
+    }
+    IEnumerator FadeOut()
+    {
+        FadeImage.SetActive(true);
+        FadeImage.GetComponent<Animator>().Play("Fade Out");
+        yield return new WaitForSeconds(1);
     }
 }

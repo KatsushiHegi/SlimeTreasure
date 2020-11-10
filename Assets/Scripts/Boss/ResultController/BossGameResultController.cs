@@ -9,10 +9,11 @@ public class BossGameResultController : MonoBehaviour
 
     [SerializeField] Text TotalKillTextValue, TotalTimeTextValue;
 
-    public void SetResult(GameSystem gameSystem)
+    public void SetResult(BossGameSystem bossGameSystem)
     {
-        TotalKillTextValue.text = gameSystem.GameConfig.killCount.ToString();
+        ResultObj.SetActive(true);
+        TotalKillTextValue.text = bossGameSystem.GameConfig.killCount.ToString();
         TotalTimeTextValue.text = "00:00:00";
-
+        //Treasure
     }
 }
