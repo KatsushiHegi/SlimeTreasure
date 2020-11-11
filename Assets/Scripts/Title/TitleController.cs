@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class TitleController : MonoBehaviour
 {
     public GameObject fade;
+
+    public TitleSoundController SoundController;
     public void titlePanelClick()
     {
         fade.SetActive(true);
         fade.GetComponent<Animator>().Play("Fade Out");
+        SoundController.FadeOutTitleBGM();
         StartCoroutine("goToMain");
     }
     IEnumerator goToMain()

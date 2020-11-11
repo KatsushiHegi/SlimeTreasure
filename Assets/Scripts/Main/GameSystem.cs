@@ -18,6 +18,8 @@ public class GameSystem : MonoBehaviour
     private int killCount;
     public GameConfig GameConfig { get; private set; }
 
+    public MainSoundController SoundController;
+
 
 
     public int getKillCount() { return this.killCount; }
@@ -74,6 +76,7 @@ public class GameSystem : MonoBehaviour
         Fade.SetActive(true);
         Fade.transform.SetAsLastSibling();
         Fade.GetComponent<Animator>().Play("Fade Out");
+        SoundController.MainBgmFadeOut();
         yield return new WaitForSeconds(1f);
         SaveDataToLocal();
         SceneManager.LoadScene("Boss");
@@ -81,7 +84,7 @@ public class GameSystem : MonoBehaviour
 
     IEnumerator fadeIn()
     {
-        //yield return null;
+        SoundController.MainBgmFadeIn();
         Fade.GetComponent<Animator>().Play("Fade In");
         yield return new WaitForSeconds(1);
         Fade.SetActive(false);
