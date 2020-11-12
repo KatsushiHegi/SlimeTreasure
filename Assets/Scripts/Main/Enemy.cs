@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         if (!flag_range)
         {
             if (flag_swich)

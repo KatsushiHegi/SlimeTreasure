@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BossGameSystem
@@ -25,6 +26,14 @@ public class BossGameSystem
         }
         return false;
     }
+
+    public int FindTreasure()
+    {
+        GameConfig.TreasuresCount++;
+        if (GameConfig.TreasuresCount > 3) return 0;
+        return GameConfig.TreasuresCount;
+    }
+
 
     //save
     public void LoadDataFromLocal()

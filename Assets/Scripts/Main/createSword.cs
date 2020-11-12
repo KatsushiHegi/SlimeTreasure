@@ -21,6 +21,7 @@ public class CreateSword : MonoBehaviour
         item.delK();
         itemSystem.setSwordCount(itemSystem.getSwordCount() + 1);
         item.getButton().transform.Find("c").gameObject.SetActive(true);
+        itemSystem.gameSystem.SoundController.PlayCreateSe();
         item.dispSwordButton();
     }
 }

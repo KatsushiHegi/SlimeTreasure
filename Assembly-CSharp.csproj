@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Boss\Boss.cs" />
     <Compile Include="Assets\Scripts\Boss\BossController\BossGameBossController.cs" />
     <Compile Include="Assets\Scripts\Boss\BossGameController.cs" />
+    <Compile Include="Assets\Scripts\Boss\BossGameSoundController.cs" />
     <Compile Include="Assets\Scripts\Boss\BossGameSystem.cs" />
     <Compile Include="Assets\Scripts\Boss\PlayerController\BossGamePlayerController.cs" />
     <Compile Include="Assets\Scripts\Boss\PlayerController\EffectController\BossGameEffectController.cs" />

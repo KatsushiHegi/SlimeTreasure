@@ -13,6 +13,7 @@ public class TitleController : MonoBehaviour
         fade.SetActive(true);
         fade.GetComponent<Animator>().Play("Fade Out");
         SoundController.FadeOutTitleBGM();
+        SoundController.PlayShakin();
         StartCoroutine("goToMain");
     }
     IEnumerator goToMain()

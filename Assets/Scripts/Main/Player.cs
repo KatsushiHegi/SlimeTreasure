@@ -16,31 +16,34 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         Vector3 pos = transform.position;
         Vector3 savePos = pos;
 
         pos.x += _joystick.Direction.x * SPEED;
         pos.z += _joystick.Direction.y * SPEED;
-      
-            Vector3 diff = pos - savePos;
+
+        Vector3 diff = pos - savePos;
 
         //ベクトルの大きさが0.01以上の時に向きを変える処理をする
-        if (diff.magnitude > 0.01f )
+        if (diff.magnitude > 0.01f)
         {
             transform.rotation = Quaternion.LookRotation(diff); //向きを変更する
             animator.SetTrigger("isRun");
-            if(!smoke.isEmitting){
+            if (!smoke.isEmitting)
+            {
                 smoke.Play();
             }
         }
         else
         {
             animator.ResetTrigger("isRun");
-            if(smoke.isEmitting){
+            if (smoke.isEmitting)
+            {
                 smoke.Stop();
             }
         }
-    
+
 
         transform.position = pos;
     }

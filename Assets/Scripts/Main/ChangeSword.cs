@@ -16,6 +16,7 @@ public class ChangeSword : MonoBehaviour
     }
     public void OnClickSwordBotton()
     {
+        itemSystem.gameSystem.SoundController.PlayEffectSound(swordNum);
         itemSystem.activeSword().getSword().SetActive(false);
         itemSystem.activeSword().setIsActive(false);
         item.setIsActive(true);

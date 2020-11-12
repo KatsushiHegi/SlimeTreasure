@@ -13,6 +13,7 @@ public class BossGameController : MonoBehaviour
     public BossGamePlayerController PlayerController;
     public BossGameBossController BossController;
     public BossGameResultController ResultController;
+    public BossGameSoundController SoundController;
 
     BossGameSystem bossGameSystem;
     void Start()
@@ -62,6 +63,7 @@ public class BossGameController : MonoBehaviour
 
     IEnumerator MainThered()
     {
+        SoundController.BossBgmFadeIn();
         Init();
         yield return FadeIn();
 
@@ -69,12 +71,16 @@ public class BossGameController : MonoBehaviour
 
     IEnumerator ResultThered()
     {
+        bossGameSystem.SaveDataToLocal();
+        SoundController.BossBgmFadeOut();
         yield return BossController.PlayBossDead();
+        SoundController.ResultBgmFadeIn();
         ResultController.SetResult(bossGameSystem);
     }
 
     IEnumerator ToMainThered()
     {
+        SoundController.ResultBgmFadeOut();
         yield return FadeOut();
         SceneManager.LoadScene("Main");
     }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class MainSoundController : MonoBehaviour
 {
     [SerializeField] AudioSource BGM;
-
+    [SerializeField] GameObject CreateSe;
+    [SerializeField] GameObject[] EffectSounds;
     public void MainBgmFadeIn()
     {
         StartCoroutine(FadeIn(BGM));
@@ -13,6 +14,14 @@ public class MainSoundController : MonoBehaviour
     public void MainBgmFadeOut()
     {
         StartCoroutine(FadeOut(BGM));
+    }
+    public void PlayCreateSe()
+    {
+        StartCoroutine(InsDel(CreateSe, 1));
+    }
+    public void PlayEffectSound(int num)
+    {
+        StartCoroutine(InsDel(EffectSounds[num], 1.5f));
     }
     IEnumerator FadeIn(AudioSource audio, float second = 1)
     {
@@ -33,5 +42,11 @@ public class MainSoundController : MonoBehaviour
             audio.volume = maxVol - maxVol * (i / maxFlame);
             yield return null;
         }
+    }
+    IEnumerator InsDel(GameObject obj ,float time)
+    {
+        GameObject g = Instantiate(obj);
+        yield return new WaitForSeconds(time);
+        Destroy(g);
     }
 }

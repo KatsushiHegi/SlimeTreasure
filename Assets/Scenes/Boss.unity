@@ -2874,6 +2874,7 @@ GameObject:
   - component: {fileID: 182773192}
   - component: {fileID: 182773194}
   - component: {fileID: 182773195}
+  - component: {fileID: 182773196}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2950,6 +2951,7 @@ MonoBehaviour:
   PlayerController: {fileID: 182773193}
   BossController: {fileID: 182773194}
   ResultController: {fileID: 182773195}
+  SoundController: {fileID: 182773196}
 --- !u!114 &182773192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3018,6 +3020,26 @@ MonoBehaviour:
   ResultObj: {fileID: 1414192634}
   TotalKillTextValue: {fileID: 435640691}
   TotalTimeTextValue: {fileID: 1827532312}
+  TreasureImg: {fileID: 2118987757}
+  TreImgs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &182773196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182773187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa629c96580129245b3821ddcd191fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossBGM: {fileID: 1620664115}
+  ResultBGM: {fileID: 8049957167933302707, guid: 0b51b3f831ff4424cb22670386e14680,
+    type: 3}
 --- !u!1001 &184616531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8198,7 +8220,7 @@ GameObject:
   - component: {fileID: 485986403}
   - component: {fileID: 485986402}
   m_Layer: 5
-  m_Name: ClearItem
+  m_Name: Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25285,6 +25307,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1616075215}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1620664115 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2658191175502970877, guid: ff4f71749072f734e847690488254fd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2658191174958309582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1625836476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34536,7 +34564,7 @@ GameObject:
   - component: {fileID: 2118987758}
   - component: {fileID: 2118987757}
   m_Layer: 5
-  m_Name: Image
+  m_Name: TreasureImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36749,6 +36777,75 @@ Transform:
   m_Father: {fileID: 4754174931154473412}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2658191174958309582
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.6852493
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.7005258
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.6807156
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970874, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658191175502970876, guid: ff4f71749072f734e847690488254fd6,
+        type: 3}
+      propertyPath: m_Name
+      value: BossBGM
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff4f71749072f734e847690488254fd6, type: 3}
 --- !u!4 &2674777581013027634
 Transform:
   m_ObjectHideFlags: 0
@@ -37412,8 +37509,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eb208b142ac0b7941ba0446c272f316a, type: 2}
-  - {fileID: 2100000, guid: 449c74ac175a6e643909ab269a9c1762, type: 2}
+  - {fileID: 2100000, guid: 726d9c93a1786ac4aa3cfbe546f765de, type: 2}
+  - {fileID: 2100000, guid: 726d9c93a1786ac4aa3cfbe546f765de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

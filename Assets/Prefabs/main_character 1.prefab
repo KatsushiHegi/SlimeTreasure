@@ -438,9 +438,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3093837696303437710}
-  - component: {fileID: 7109843571588976600}
   - component: {fileID: 5975158264620314898}
   - component: {fileID: 7733840839953102526}
+  - component: {fileID: 6468011669299176153}
   m_Layer: 0
   m_Name: main_character 1
   m_TagString: Player
@@ -466,20 +466,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!136 &7109843571588976600
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2424155213453675828}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1
-  m_Height: 5
-  m_Direction: 1
-  m_Center: {x: 0, y: 2, z: 0}
 --- !u!95 &5975158264620314898
 Animator:
   serializedVersion: 3
@@ -514,6 +500,19 @@ MonoBehaviour:
   attackFlag: 0
   _joystick: {fileID: 0}
   smoke: {fileID: 6152133088753278436}
+--- !u!65 &6468011669299176153
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2424155213453675828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9220133, y: 4.305329, z: 2.2003562}
+  m_Center: {x: 0.008697778, y: 2.157162, z: -0.11307728}
 --- !u!1 &2824578943795743240
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,15 @@ using UnityEngine;
 public class TitleSoundController : MonoBehaviour
 {
     [SerializeField] AudioSource TitleBGM;
+    [SerializeField] GameObject Shakin;
     public void FadeOutTitleBGM()
     {
         StartCoroutine(FadeOut(TitleBGM));
+    }
+
+    public void PlayShakin()
+    {
+        Shakin.SetActive(true);
     }
 
     IEnumerator FadeIn(AudioSource audio, float maxVol = 1, float second = 1)

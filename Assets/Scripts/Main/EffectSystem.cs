@@ -6,33 +6,34 @@ using UnityEngine;
 public class EffectSystem : MonoBehaviour
 {
     public GameObject[] effect;
-    public float[] effectTime;
-    public ItemSystem itemSystem;
-    private bool flag;
 
-    /*
-    public void effectActive(){
-        int swordNum= int.Parse(itemSystem.activeSword().getSword().name);
-        
-        effect[swordNum-1].SetActive(false);
-        effect[swordNum-1].SetActive(true);
-    }
-    */
-    public void effectInstantiate(Vector3 pos,Quaternion rot)
+    [SerializeField] GameObject DeathEffect;
+    public ItemSystem itemSystem;
+    bool flag;
+    public void effectInstantiate(Vector3 pos, Quaternion rot)
     {
         if (!flag)
         {
             rot.eulerAngles += new Vector3(0, 0, 45);
             int swordNum = int.Parse(itemSystem.activeSword().getSword().name);
-            StartCoroutine(desEffect(Instantiate(effect[swordNum], pos, rot),effectTime[swordNum]));
+            StartCoroutine(destroyEffect(Instantiate(effect[swordNum], pos, rot)));
             flag = true;
+            StartCoroutine(CoolTime());
         }
     }
-
-    IEnumerator desEffect(GameObject effect,float time)
+    public void DeathEffectInstantiate(Vector3 pos, Quaternion rot)
     {
-        yield return new WaitForSeconds(time);
+        StartCoroutine(destroyEffect(Instantiate(DeathEffect, pos, rot)));
+    }
+
+    IEnumerator destroyEffect(GameObject effect)
+    {
+        yield return new WaitForSeconds(1.5f);
         Destroy(effect);
+    }
+    IEnumerator CoolTime()
+    {
+        yield return new WaitForSeconds(0.2f);
         flag = false;
     }
 

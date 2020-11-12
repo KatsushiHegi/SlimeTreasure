@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +8,7 @@ public class GameSystem : MonoBehaviour
 {
     [SerializeField] GameObject Enemy;
     [SerializeField] GameObject Enemy_parent;
+    [SerializeField] GameObject[] Treasures;
     public GameObject ItemBoxPanel,Fade,ToBossImage,canvas;
     public Text killCounter,swordCounter,nameText;
     public ItemSystem itemSystem;
@@ -27,7 +24,6 @@ public class GameSystem : MonoBehaviour
     {
         this.killCount = killCount;
         GameConfig.killCount = killCount;
-    //    dispKillCount();
     }
     public void incKillCount(int inc)
     {
@@ -62,6 +58,10 @@ public class GameSystem : MonoBehaviour
         disp(nameText, GameConfig.playerName);
         setKillCount(GameConfig.killCount);
         disp(killCounter, killCount.ToString());
+        for (int i = 0; i < GameConfig.TreasuresCount; i++)
+        {
+            Treasures[i].SetActive(true);
+        }
         itemSystem.loadItem(GameConfig.swordCount, GameConfig.sworded, GameConfig.kakeraCounts, GameConfig.activeSwordNum);
     }
 
@@ -106,7 +106,7 @@ public class GameSystem : MonoBehaviour
         string json = PlayerPrefs.GetString("gameconfig", null);
         GameConfig = String.IsNullOrEmpty(json) ? new GameConfig() : JsonUtility.FromJson<GameConfig>(json);
         /*Debug*/
-        GameConfig = new GameConfig();
+        //GameConfig = new GameConfig();
     }
 
     public void SaveDataToLocal()
@@ -118,7 +118,7 @@ public class GameSystem : MonoBehaviour
     IEnumerator SlimePop()
     {
         float x, z;
-        GameObject[] slimes=new GameObject[50];
+        GameObject[] slimes = new GameObject[50];
         while (true)
         {
             for (int i = 0; i < slimes.Length; i++)

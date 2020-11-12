@@ -41,6 +41,7 @@ public class Range_Player : MonoBehaviour
             {
                 //effectSystem.effectActive();
                 effectSystem.effectInstantiate(Player.transform.position, Player.transform.rotation);
+                effectSystem.DeathEffectInstantiate(collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 Destroy(collision.gameObject);
                 gameSystem.incKillCount(1);
                 itemSystem.dropChallenge();
