@@ -23,9 +23,7 @@ public class Range_Player : MonoBehaviour
             && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
             && !animator.IsInTransition(0))
         {
-            animator.SetTrigger("Attack");
-            //ここ
-            
+            animator.SetTrigger("Attack");            
         }
     }
     void OnTriggerStay(Collider collision)
@@ -34,17 +32,16 @@ public class Range_Player : MonoBehaviour
         {
             Player.transform.LookAt(collision.gameObject.transform);
             animator.SetTrigger("Attack");
-            //だめだったらここも
             
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
                 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
             {
-                //effectSystem.effectActive();
                 effectSystem.effectInstantiate(Player.transform.position, Player.transform.rotation);
                 effectSystem.DeathEffectInstantiate(collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 Destroy(collision.gameObject);
                 gameSystem.incKillCount(1);
                 itemSystem.dropChallenge();
+                if (gameSystem.GameConfig.clearCount > 0) gameSystem.BossChallenge();
                 animator.ResetTrigger("Attack");
             }
         }

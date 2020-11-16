@@ -18,12 +18,12 @@ public class BossGameController : MonoBehaviour
     BossGameSystem bossGameSystem;
     void Start()
     {
+        bossGameSystem = new BossGameSystem();
         StartCoroutine(MainThered());
     }
 
     void Init()
     {
-        bossGameSystem = new BossGameSystem();
         DispInit();
     }
 
@@ -46,7 +46,6 @@ public class BossGameController : MonoBehaviour
         if (flag)
         {
             StartCoroutine(ResultThered());
-            TapPanel.SetActive(false);
         }
     }
 
@@ -63,15 +62,17 @@ public class BossGameController : MonoBehaviour
 
     IEnumerator MainThered()
     {
-        SoundController.BossBgmFadeIn();
         Init();
+        SoundController.BossBgmFadeIn();
         yield return FadeIn();
-
+        Debug.Log(bossGameSystem.GameConfig.nowPlace);
+        if (bossGameSystem.GameConfig.nowPlace == 2) { yield return StartCoroutine(ResultThered()); }
     }
 
     IEnumerator ResultThered()
     {
-        bossGameSystem.SaveDataToLocal();
+        TapPanel.SetActive(false);
+        bossGameSystem.Clear();
         SoundController.BossBgmFadeOut();
         yield return BossController.PlayBossDead();
         SoundController.ResultBgmFadeIn();
@@ -80,6 +81,9 @@ public class BossGameController : MonoBehaviour
 
     IEnumerator ToMainThered()
     {
+        bossGameSystem.GameConfig.nowPlace = 0;
+        bossGameSystem.SaveDataToLocal();
+
         SoundController.ResultBgmFadeOut();
         yield return FadeOut();
         SceneManager.LoadScene("Main");

@@ -65,12 +65,22 @@ public class GameSystem : MonoBehaviour
         itemSystem.loadItem(GameConfig.swordCount, GameConfig.sworded, GameConfig.kakeraCounts, GameConfig.activeSwordNum);
     }
 
+    public void BossChallenge()
+    {
+        if (UnityEngine.Random.value < 0.1) ToBoss();//Debug
+    }
+
+
+
+
+
     public void ToBoss()
     {
         StartCoroutine(ToBossThered());
     }
     IEnumerator ToBossThered()
     {
+        GameConfig.nowPlace = 1;
         Instantiate(ToBossImage, canvas.transform);
         yield return new WaitForSeconds(1.5f);
         Fade.SetActive(true);
@@ -95,10 +105,7 @@ public class GameSystem : MonoBehaviour
         LoadDataFromLocal();
         Init();
         yield return fadeIn();
-
-
         StartCoroutine(SlimePop());
-        killCount = 0;
     }
     //save
     public void LoadDataFromLocal()

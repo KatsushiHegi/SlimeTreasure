@@ -12,6 +12,9 @@ public class GameConfig
     public int bossHp;
 
     public int TreasuresCount;
+    public int clearCount;
+
+    public int nowPlace;
     public GameConfig()
     {
         playerName = "SlimeHunter";

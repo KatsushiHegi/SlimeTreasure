@@ -5989,6 +5989,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00e2e59cbc04eab4a982218df54ce70b, type: 3}
+--- !u!1 &383671139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5819279133337614866, guid: 9da966bcc6a1f09438e8fda1d83060b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1148015627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &383867031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4586821900076392, guid: ae9772ea62bbc724eb9b8ef81109f733,
@@ -16174,6 +16180,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 983943783}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &928721407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5819279133337614866, guid: 610df8b96ef98da4dabb40896916051d,
+    type: 3}
+  m_PrefabInstance: {fileID: 224197692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &930183889
 GameObject:
   m_ObjectHideFlags: 0
@@ -24425,7 +24437,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 8790127511764686534, guid: b2310f1c13755464591b9d0658fb2fc1, type: 3}
   Enemy_parent: {fileID: 525120343}
-  Treasures: []
+  Treasures:
+  - {fileID: 928721407}
+  - {fileID: 1744549695}
+  - {fileID: 383671139}
   ItemBoxPanel: {fileID: 601001292}
   Fade: {fileID: 1487212637}
   ToBossImage: {fileID: 3691239746340345110, guid: a70a030c92a3a084aad60d28581ad6f7,
@@ -32735,6 +32750,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1210531660}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1744549695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5819279133337614866, guid: 4dcf712909a383243bfd0a043c635809,
+    type: 3}
+  m_PrefabInstance: {fileID: 2144354245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1744988672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4607489187838822, guid: 00e2e59cbc04eab4a982218df54ce70b,
@@ -39163,7 +39184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 544, y: 900}
+  m_AnchoredPosition: {x: 478.6, y: 900}
   m_SizeDelta: {x: 180, y: 78.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120872263
@@ -39192,7 +39213,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 127
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

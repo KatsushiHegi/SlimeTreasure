@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Main\Range_Player.cs" />
     <Compile Include="Assets\Scripts\Title\TitleController.cs" />
     <Compile Include="Assets\Scripts\Title\TitleSoundController.cs" />
+    <Compile Include="Assets\Scripts\Title\TitleSystem.cs" />
     <Compile Include="Assets\etc\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\etc\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\etc\Joystick Pack\Scripts\Base\Joystick.cs" />

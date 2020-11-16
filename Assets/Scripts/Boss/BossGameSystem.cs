@@ -15,6 +15,7 @@ public class BossGameSystem
         LoadDataFromLocal();
         Boss = new Boss();
         Boss.hp = GameConfig.bossHp;
+        SaveDataToLocal();
     }
 
     public bool Attack()
@@ -30,10 +31,21 @@ public class BossGameSystem
     public int FindTreasure()
     {
         GameConfig.TreasuresCount++;
-        if (GameConfig.TreasuresCount > 3) return 0;
+        if (GameConfig.TreasuresCount > 3)
+        {
+            GameConfig.TreasuresCount = 3;
+            return 0;
+        }
         return GameConfig.TreasuresCount;
     }
-
+    
+    public void Clear()
+    {
+        GameConfig.clearCount++;
+        GameConfig.nowPlace = 2;
+        Debug.Log(GameConfig.nowPlace);
+        SaveDataToLocal();
+    }
 
     //save
     public void LoadDataFromLocal()

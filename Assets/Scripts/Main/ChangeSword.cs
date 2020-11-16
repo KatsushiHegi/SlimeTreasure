@@ -22,7 +22,10 @@ public class ChangeSword : MonoBehaviour
         item.setIsActive(true);
         itemSystem.gameSystem.GameConfig.activeSwordNum = swordNum;
         item.getSword().SetActive(true);
-        if (itemSystem.getSwordCount() == 2) itemSystem.gameSystem.ToBoss();
+        if (
+            itemSystem.getSwordCount() == 6
+            && itemSystem.gameSystem.GameConfig.clearCount == 0
+            ) itemSystem.gameSystem.ToBoss();
         ItemBoxPanel.SetActive(false);
     }
 }

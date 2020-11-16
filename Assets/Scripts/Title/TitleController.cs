@@ -8,6 +8,13 @@ public class TitleController : MonoBehaviour
     public GameObject fade;
 
     public TitleSoundController SoundController;
+
+    TitleSystem titleSystem;
+    void Start()
+    {
+        titleSystem = new TitleSystem();
+    }
+
     public void titlePanelClick()
     {
         fade.SetActive(true);
@@ -19,6 +26,7 @@ public class TitleController : MonoBehaviour
     IEnumerator goToMain()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Main");
+        if (titleSystem.GameConfig.nowPlace == 0) SceneManager.LoadScene("Main");
+        else SceneManager.LoadScene("Boss");
     }
 }
