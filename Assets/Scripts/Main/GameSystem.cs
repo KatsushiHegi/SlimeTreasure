@@ -67,12 +67,8 @@ public class GameSystem : MonoBehaviour
 
     public void BossChallenge()
     {
-        if (UnityEngine.Random.value < 0.5) ToBoss();//Debug
+        if (UnityEngine.Random.value < 0.001f) ToBoss();
     }
-
-
-
-
 
     public void ToBoss()
     {
@@ -114,7 +110,6 @@ public class GameSystem : MonoBehaviour
     {
         string json = PlayerPrefs.GetString("gameconfig", null);
         GameConfig = String.IsNullOrEmpty(json) ? new GameConfig() : JsonUtility.FromJson<GameConfig>(json);
-        /*Debug*/
         //GameConfig = new GameConfig();
     }
 
@@ -127,7 +122,7 @@ public class GameSystem : MonoBehaviour
     IEnumerator SlimePop()
     {
         float x, z;
-        GameObject[] slimes = new GameObject[50];
+        GameObject[] slimes = new GameObject[25];
         while (true)
         {
             for (int i = 0; i < slimes.Length; i++)

@@ -18,7 +18,10 @@ public class BossGameController : MonoBehaviour
     BossGameSystem bossGameSystem;
 
     bool flag;
-
+    void Awake()
+    {
+        Application.targetFrameRate = 60; //60FPSに設定
+    }
     void Start()
     {
         bossGameSystem = new BossGameSystem();
@@ -67,7 +70,7 @@ public class BossGameController : MonoBehaviour
     {
         while (!flag)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.8f);
             if (!flag)
             {
                 bossGameSystem.Boss.Recovery();

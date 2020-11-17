@@ -7,18 +7,15 @@ using UnityEngine.UI;
 public class Item
 {
     private int kCount;
-    private double dropProb;
     private bool isSword,isActive;
     private GameObject sword, button;
     private GameObject swordButton;
     private GameObject[] k;
-    private System.Random r = new System.Random();
-    public Item(GameObject sword, GameObject button, float dropProb = 0.01f)
+    public Item(GameObject sword, GameObject button)
     {
         kCount = 0;
         this.sword = sword;
         this.button = button;
-        this.dropProb = dropProb;
         k = new GameObject[3];
         swordButton = button.transform.Find(button.name).gameObject;
         for (int i = 0; i < k.Length; i++)
@@ -46,16 +43,9 @@ public class Item
     public void setIsActive(bool b) { this.isActive = b; }
 
 
-    public bool drop()
+    public void drop()
     {
-        if (r.NextDouble() < dropProb)
-        {
-            kCountup();
-            //かけら
-            Debug.Log(sword.name + "drop");
-            return true;
-        }
-        return false;
+        kCountup();
     }
 
     public void dispSwordButton()

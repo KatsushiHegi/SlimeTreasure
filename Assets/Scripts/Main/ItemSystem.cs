@@ -42,21 +42,27 @@ public class ItemSystem : MonoBehaviour
     }
 
 
-    public int dropChallenge()
+    public void dropChallenge()
     {
-        for (int i = 0; i < items.Length; i++)
+        if (swordCount < 6
+            && UnityEngine.Random.value < 0.01f)//ドロップ率
         {
-            if (!items[i].getIsSword())
+            int[] rAry = new int[6 - swordCount];
+            int j = 0;
+            for (int i = 0; i < 6; i++) //武器の種類数を回数とする
             {
-                if (items[i].drop())
+                if (!gameSystem.GameConfig.sworded[i])
                 {
-                    gameSystem.GameConfig.kakeraCounts[i] = items[i].getKCount();
-                    StartCoroutine(PlayDropAnim(i));
-                    return i;
+                    rAry[j] = i;
+                    j++;
                 }
             }
+            int dNum = rAry[UnityEngine.Random.Range(0, 6 - swordCount)];
+
+            items[dNum].drop();
+            gameSystem.GameConfig.kakeraCounts[dNum] = items[dNum].getKCount();
+            StartCoroutine(PlayDropAnim(dNum));
         }
-        return 9;
     }
 
     public void itemBoxControl()
@@ -81,7 +87,7 @@ public class ItemSystem : MonoBehaviour
     {
         for (int i = 0; i < items.Length; i++)
         {
-            items[i] = new Item(swords[i], buttons[i], 0.9f);
+            items[i] = new Item(swords[i], buttons[i]);
         }
         setSwordCount(swordCount);
         for (int i = 0; i < sworded.Length; i++)

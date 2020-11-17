@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Boss
 {
-    public const int maxHp=10;
+    public const int maxHp=50;
     public int hp { get; set; }
 
     public void Recovery()
     {
-        if (hp < maxHp)hp++;
+        if (hp < maxHp)hp+=3;
     }
 }
 
