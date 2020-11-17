@@ -5,7 +5,7 @@ using UnityEngine;
 public class MainSoundController : MonoBehaviour
 {
     [SerializeField] AudioSource BGM;
-    [SerializeField] GameObject CreateSe;
+    [SerializeField] GameObject CreateSe, ToBossSe;
     [SerializeField] GameObject[] EffectSounds;
     public void MainBgmFadeIn()
     {
@@ -14,6 +14,11 @@ public class MainSoundController : MonoBehaviour
     public void MainBgmFadeOut()
     {
         StartCoroutine(FadeOut(BGM));
+    }
+    public void PlayAndFadeToBossSe()
+    {
+        ToBossSe.SetActive(true);
+        StartCoroutine(FadeOut(ToBossSe.GetComponent<AudioSource>(), 2.5f));
     }
     public void PlayCreateSe()
     {

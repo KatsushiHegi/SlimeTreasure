@@ -7,7 +7,7 @@ public class BossGameResultController : MonoBehaviour
 {
     [SerializeField] GameObject ResultObj;
 
-    [SerializeField] Text TotalKillTextValue, TotalTimeTextValue;
+    [SerializeField] Text TotalKillTextValue, TotalClearCountValue;
 
     [SerializeField] Image TreasureImg;
     [SerializeField] Sprite[] TreImgs;
@@ -15,9 +15,14 @@ public class BossGameResultController : MonoBehaviour
     public void SetResult(BossGameSystem bossGameSystem)
     {
         ResultObj.SetActive(true);
+        TotalClearCountValue.text = bossGameSystem.GameConfig.clearCount.ToString();
         TotalKillTextValue.text = bossGameSystem.GameConfig.killCount.ToString();
-        TotalTimeTextValue.text = "00:00:00";
-        //Treasure
-        TreasureImg.sprite = TreImgs[bossGameSystem.FindTreasure()];
+
+        int num = bossGameSystem.FindTreasure();
+        if (num != 9)
+        {
+            TreasureImg.gameObject.SetActive(true);
+            TreasureImg.sprite = TreImgs[num];
+        }
     }
 }

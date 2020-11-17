@@ -67,7 +67,7 @@ public class GameSystem : MonoBehaviour
 
     public void BossChallenge()
     {
-        if (UnityEngine.Random.value < 0.1) ToBoss();//Debug
+        if (UnityEngine.Random.value < 0.5) ToBoss();//Debug
     }
 
 
@@ -82,6 +82,7 @@ public class GameSystem : MonoBehaviour
     {
         GameConfig.nowPlace = 1;
         Instantiate(ToBossImage, canvas.transform);
+        SoundController.PlayAndFadeToBossSe();
         yield return new WaitForSeconds(1.5f);
         Fade.SetActive(true);
         Fade.transform.SetAsLastSibling();
@@ -106,6 +107,7 @@ public class GameSystem : MonoBehaviour
         Init();
         yield return fadeIn();
         StartCoroutine(SlimePop());
+        StartCoroutine(SaveLoop());
     }
     //save
     public void LoadDataFromLocal()
@@ -140,6 +142,15 @@ public class GameSystem : MonoBehaviour
             yield return new WaitForSeconds(10);
         }
 
+    }
+    IEnumerator SaveLoop()
+    {
+        while (true)
+        {
+            SaveDataToLocal();
+            yield return new WaitForSeconds(3);
+        }
+        
     }
 }
 

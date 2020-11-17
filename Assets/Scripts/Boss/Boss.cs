@@ -6,16 +6,9 @@ public class Boss
     public const int maxHp=10;
     public int hp { get; set; }
 
-    public IEnumerator AutomaticRecovery()
+    public void Recovery()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            if (hp < maxHp)
-            {
-                hp++;
-            }
-        }
+        if (hp < maxHp)hp++;
     }
 }
 

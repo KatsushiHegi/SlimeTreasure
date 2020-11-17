@@ -26,6 +26,12 @@ public class ChangeSword : MonoBehaviour
             itemSystem.getSwordCount() == 6
             && itemSystem.gameSystem.GameConfig.clearCount == 0
             ) itemSystem.gameSystem.ToBoss();
+        StartCoroutine(PanelFalse());
+    }
+    IEnumerator PanelFalse()
+    {
+        ItemBoxPanel.GetComponent<Animator>().Play("TopDown");
+        yield return new WaitForSeconds(0.15f);
         ItemBoxPanel.SetActive(false);
     }
 }

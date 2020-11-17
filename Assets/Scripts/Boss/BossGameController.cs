@@ -16,6 +16,9 @@ public class BossGameController : MonoBehaviour
     public BossGameSoundController SoundController;
 
     BossGameSystem bossGameSystem;
+
+    bool flag;
+
     void Start()
     {
         bossGameSystem = new BossGameSystem();
@@ -34,11 +37,11 @@ public class BossGameController : MonoBehaviour
         SwordCounter.text = bossGameSystem.GameConfig.swordCount.ToString();
         BossHpSlider.value = (float)bossGameSystem.Boss.hp / Boss.maxHp;
         PlayerController.SetPlayer(bossGameSystem);
+        StartCoroutine(BossAutoRecovery());
     }
 
     public void AttackToBoss()
     {
-        bool flag;
         flag=bossGameSystem.Attack();
         ReDispHp();
         StartCoroutine(PlayerController.PlayAttack());
@@ -60,12 +63,25 @@ public class BossGameController : MonoBehaviour
     }
 
 
+    IEnumerator BossAutoRecovery()
+    {
+        while (!flag)
+        {
+            yield return new WaitForSeconds(1);
+            if (!flag)
+            {
+                bossGameSystem.Boss.Recovery();
+                ReDispHp();
+            }
+        }
+    }
+
+
     IEnumerator MainThered()
     {
         Init();
         SoundController.BossBgmFadeIn();
         yield return FadeIn();
-        Debug.Log(bossGameSystem.GameConfig.nowPlace);
         if (bossGameSystem.GameConfig.nowPlace == 2) { yield return StartCoroutine(ResultThered()); }
     }
 

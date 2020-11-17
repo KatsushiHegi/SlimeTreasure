@@ -31,19 +31,18 @@ public class BossGameSystem
     public int FindTreasure()
     {
         GameConfig.TreasuresCount++;
-        if (GameConfig.TreasuresCount > 3)
+        if (GameConfig.TreasuresCount >= 4)
         {
             GameConfig.TreasuresCount = 3;
-            return 0;
+            return 9;
         }
-        return GameConfig.TreasuresCount;
+        return GameConfig.TreasuresCount - 1;
     }
     
     public void Clear()
     {
         GameConfig.clearCount++;
         GameConfig.nowPlace = 2;
-        Debug.Log(GameConfig.nowPlace);
         SaveDataToLocal();
     }
 
